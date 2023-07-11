@@ -3,7 +3,9 @@ using namespace std;
 
 class FIB{
   public:
+    int count = 0;
     int fib(int x){
+        count++;
         if(x == 1)
             return 0;
         if(x == 2)
@@ -27,6 +29,7 @@ int main(){
     cout <<"enter number of fibonacci numbers: ";
     cin >> n;
     fib_num.printfib(n);
+    cout <<"\ncount: "<<fib_num.count;
     return 0;
 
 }
