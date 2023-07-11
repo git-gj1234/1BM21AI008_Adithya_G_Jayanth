@@ -5,8 +5,9 @@ using namespace std;
 
 class sort{
     private:
-        int n, a[10];
+        int n, a[20];
     public:
+        int count_selection = 0, count_bubble = 0;
         int get_n();
         void selection_sort();
         void bubble_sort();
@@ -49,6 +50,7 @@ void sort::swap(int *a , int *b){
 void sort::selection_sort(){
     for(int cur = 0; cur < n-1; cur++){
         for(int i = cur+1; i < n; i ++){
+            count_selection++;
             if(a[i] < a[cur])
                 swap(a + i, a + cur);
         }
@@ -58,6 +60,7 @@ void sort::selection_sort(){
 void sort::bubble_sort(){
     for(int k = n-1; k > 0; k--){
         for(int i = 0; i < k; i++){
+            count_bubble++;
             if(a[i] > a[i+1])
                 swap(a+i , a+i+1);
         }
@@ -155,6 +158,7 @@ int main(void){
                 sort copy_sorter = sorter;
                 start = std::chrono::high_resolution_clock::now();
                 copy_sorter.selection_sort();
+                cout << "count: "<< copy_sorter.count_selection << "\n";
                 finish = std::chrono::high_resolution_clock::now();
                 t = finish - start;
                 std::cout << "Elapsed time: " << t.count() << " s\n";
@@ -166,6 +170,7 @@ int main(void){
                 sort copy_sorter = sorter;
                 start = std::chrono::high_resolution_clock::now();
                 copy_sorter.bubble_sort();
+                cout << "count: "<< copy_sorter.count_bubble << "\n";
                 finish = std::chrono::high_resolution_clock::now();
                 t = finish - start;
                 std::cout << "Elapsed time: " << t.count() << " s\n";
