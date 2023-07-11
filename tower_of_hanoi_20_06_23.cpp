@@ -3,7 +3,9 @@ using namespace std;
 
 class TowerOfHanoi{
     public:
+        int count;
         void solve(int n, char start, char intermediate, char stop){
+            count++;
             if(n == 0)
                 return;
             solve(n-1, start, stop, intermediate);
@@ -18,5 +20,6 @@ int main(){
     cout << "enter the number of disks: ";
     cin >> n;
     toh.solve(n,'A','B','C');
+    cout << "count: " << toh.count;
     return 0;
 }
