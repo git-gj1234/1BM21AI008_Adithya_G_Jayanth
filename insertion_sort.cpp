@@ -26,18 +26,19 @@ void sortc::get_input(){
             for(int i=0;i<n;i++){
                 cin >> a[i];
             }
+            break;
         case 2:
             for(int i=0;i<n;i++){
                 a[i] = rand()%100;
             }
-            
+            break;            
     }    
 }
 
 void sortc::display(){
     cout << "sorted array: ";
     for(int i =0; i<n; i++){
-        cout << a[i] << " ";
+        // cout << a[i] << " ";
     }
     cout << "\ncount: " << count_insertion;
 }
