@@ -2,7 +2,7 @@
 using namespace std;
 
 
-#define V 5
+#define V 4
 
 
 int minKey(int key[], bool mstSet[])
@@ -13,7 +13,10 @@ int minKey(int key[], bool mstSet[])
 	for (int v = 0; v < V; v++)
 		if (mstSet[v] == false && key[v] < min)
 			min = key[v], min_index = v;
-
+	cout << "key now: " ;
+	for(int i = 0; i<V; i++)
+		cout << key[i] << " ";
+	cout << "\n";
 	return min_index;
 }
 
@@ -61,11 +64,11 @@ void primMST(int graph[V][V])
 
 int main()
 {
-	int graph[V][V] = { { 0, 2, 0, 6, 0 },
-						{ 2, 0, 3, 8, 5 },
-						{ 0, 3, 0, 0, 7 },
-						{ 6, 8, 0, 0, 9 },
-						{ 0, 5, 7, 9, 0 } };
+	int graph[V][V] = { { 0, 1, 4, 5},
+						{ 1, 0, 6, 2},
+						{ 4, 6, 0, 1},
+						{ 5, 2, 1, 0}
+						};
 
 	primMST(graph);
 
